@@ -22,12 +22,12 @@ namespace PlantApp
                 var list = new List<Plant>();
                 while (reader.Read())
                 {
-                    var bp = new Plant      //TODO: Möjligen en otydlig variabelnamn
+                    var tempplant = new Plant      //TODO: Möjligen en otydlig variabelnamn
                     {
                         PlantId = reader.GetSqlInt32(0).Value,
                         Name = reader.GetSqlString(1).Value,
                     };
-                    list.Add(bp);
+                    list.Add(tempplant);
                 }
                 return list;
             }

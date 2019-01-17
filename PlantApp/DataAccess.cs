@@ -22,7 +22,7 @@ namespace PlantApp
                 var list = new List<Plant>();
                 while (reader.Read())
                 {
-                    var tempplant = new Plant      //TODO: Möjligen en otydlig variabelnamn
+                    var tempplant = new Plant      //TODO: Möjligen en otydlig variabelnamn // Done
                     {
                         PlantId = reader.GetSqlInt32(0).Value,
                         Name = reader.GetSqlString(1).Value,
@@ -82,7 +82,7 @@ namespace PlantApp
             return types;
         }
 
-        public List<PlantComment> ShowComment(Plant onlyOne) //TODO onlyOne används ej i metoden och behövs därför inte skickas med
+        public List<PlantComment> ShowComment() //TODO onlyOne används ej i metoden och behövs därför inte skickas med // Testar utan// JR
         {
             var sql = @"select comment, [user].UserName from Comment 
                        inner join [User] on Comment.UserID=[user].UserId

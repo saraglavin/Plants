@@ -155,7 +155,7 @@ namespace PlantApp
             onlyOne.OriginId = singePlant[0].OriginId;
             onlyOne.PoisonId = singePlant[0].PoisonId;
             onlyOne.GeneralInfo = singePlant[0].GeneralInfo;
-            List<PlantComment> plantcomment = _dataAccess.ShowComment(onlyOne);
+            List<PlantComment> plantcomment = _dataAccess.ShowComment();
             PrintGreenText("Kommentar".PadRight(100) + "Användare".PadRight(100));
             foreach (PlantComment item in plantcomment)
             {

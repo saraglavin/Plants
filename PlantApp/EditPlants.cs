@@ -48,15 +48,31 @@ namespace PlantApp
         private void PickAPlant(List<Plant> sortedList)
         {
             Header("Vilken planta vill du jobba med? Välj ett Id");
-            foreach (Plant bp in sortedList)        //TODO: Kanske döpa om variabelnamn bp
+            foreach (Plant plant in sortedList)        //TODO: Kanske döpa om variabelnamn bp
             {
-                WriteLine(bp.PlantId.ToString().PadRight(30) + bp.Name.PadRight(5));
+                WriteLine(plant.PlantId.ToString().PadRight(30) + plant.Name.PadRight(5));
             }
             Write("Plantan som ska väljas: ");
-            List<Plant> singePlant = _dataAccess.GetSinglePlant();
+            int number = GetNumber();
+            List<Plant> singePlant = _dataAccess.GetSinglePlant(number);
             PrintSinglePlantAndMenu(singePlant);
             
         }
+
+        private int GetNumber()
+        {
+            int number;
+            while (true)    
+            {
+                bool input = int.TryParse(Console.ReadLine(), out number);
+                if (input == true)
+                    break;
+                else
+                    Console.WriteLine("Du mattade inte in en siffra. Välj en siffra från listan.");
+            }
+            return number;
+        }
+
         private void UpDatePlantInfo(int plantId)
         {
             Header("Uppdatera plantans information");

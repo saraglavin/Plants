@@ -43,7 +43,7 @@ namespace PlantApp
             }
             else
             {
-                WriteLine("Fel val. Välj a eller b. Tryck enter för att logga in."); //TODO: Bra validering, men den syns ej i appen. Behövs en ReadKey eller liknande.
+                WriteLine("Fel val. Välj a eller b. Tryck enter för att logga in."); // Fixat - TODO: Bra validering, men den syns ej i appen. Behövs en ReadKey eller liknande.
                 Console.ReadKey();
                 Login();
             }
@@ -51,7 +51,7 @@ namespace PlantApp
 
         }
 
-        private void CreateAccount()    //TODO: Tydligheten är bra! Men kanske skulle metoder kunna återanvändas om denna metod delas upp i flera. Alternativt i User-klassen.
+        private void CreateAccount()    //TODO: Bra idé för framtida arbeten. Lite mycket probs nu. -  Tydligheten är bra! Men kanske skulle metoder kunna återanvändas om denna metod delas upp i flera. Alternativt i User-klassen.
         {
             while (true)
             {

@@ -42,7 +42,8 @@ namespace PlantApp
             }
             else
             {
-                WriteLine("Fel val. Välj a eller b."); //TODO: Bra validering, men den syns ej i appen. Behövs en ReadKey eller liknande.
+                WriteLine("Fel val. Välj a eller b. Tryck enter för att logga in."); //TODO: Bra validering, men den syns ej i appen. Behövs en ReadKey eller liknande.
+                Console.ReadKey();
                 Login();
             }
                 
@@ -208,7 +209,8 @@ namespace PlantApp
             }
 
             Write("Välj växt du vill se: ");
-            List<Plant> singelPlant = _dataAccess.GetSinglePlant();
+            int number = GetNumber();
+            List<Plant> singelPlant = _dataAccess.GetSinglePlant(number);
             PrintSinglePlantAndMenu(singelPlant);
             
         }

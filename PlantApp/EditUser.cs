@@ -39,7 +39,16 @@ namespace PlantApp
             if (key2 == ConsoleKey.B)
             {
                 WriteLine("Ange nytt lösenord:");
-                editUser.PassWord = Console.ReadLine(); //TODO: Kanske göra lösenordet "stjärnad" som vid skapandet. Kanske även ha i samma metod som skapandet.
+                while (true)
+                {
+
+                    var key = System.Console.ReadKey(true);
+                    if (key.Key == ConsoleKey.Enter)
+                        break;
+                    editUser.PassWord += key.KeyChar;
+                    Console.Write("*");
+                }
+                //TODO: Kanske göra lösenordet "stjärnad" som vid skapandet. Kanske även ha i samma metod som skapandet.
                 _dataAccess.EditUser(editUser);
                 Console.Clear();
                 WriteLine("Uppdaterat!");

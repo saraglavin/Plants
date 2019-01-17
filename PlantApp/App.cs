@@ -42,14 +42,14 @@ namespace PlantApp
             }
             else
             {
-                WriteLine("Fel val. Välj a eller b.");
+                WriteLine("Fel val. Välj a eller b."); //TODO: Bra validering, men den syns ej i appen. Behövs en ReadKey eller liknande.
                 Login();
             }
                 
 
         }
 
-        private void CreateAccount()
+        private void CreateAccount()    //TODO: Tydligheten är bra! Men kanske skulle metoder kunna återanvändas om denna metod delas upp i flera. Alternativt i User-klassen.
         {
             while (true)
             {
@@ -66,7 +66,7 @@ namespace PlantApp
                     while (true)
                     {
 
-                        var key = System.Console.ReadKey(true);
+                        var key = System.Console.ReadKey(true); //GOOD: Snyggt med "stjärnad"/dolt lösenord!
                         if (key.Key == ConsoleKey.Enter)
                             break;                        
                         passWord += key.KeyChar;

@@ -22,7 +22,7 @@ namespace PlantApp
                 var list = new List<Plant>();
                 while (reader.Read())
                 {
-                    var bp = new Plant
+                    var bp = new Plant      //TODO: Möjligen en otydlig variabelnamn
                     {
                         PlantId = reader.GetSqlInt32(0).Value,
                         Name = reader.GetSqlString(1).Value,
@@ -59,7 +59,7 @@ namespace PlantApp
         public List<Plant> GetSinglePlant()
         {
             int number;
-            while (true)
+            while (true)    //TODO: Lägg där metoden ropas på. Borde inte vara i en DataAccess-klass.
             {
                 bool input = int.TryParse(Console.ReadLine(), out number);
                 if (input == true)
@@ -126,7 +126,7 @@ namespace PlantApp
             return types;
         }
 
-        public List<PlantComment> ShowComment(Plant onlyOne)
+        public List<PlantComment> ShowComment(Plant onlyOne) //TODO onlyOne används ej i metoden och behövs därför inte skickas med
         {
             var sql = @"select comment, [user].UserName from Comment 
                        inner join [User] on Comment.UserID=[user].UserId

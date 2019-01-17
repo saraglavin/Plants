@@ -20,7 +20,7 @@ namespace PlantApp
                 WriteLine(bp.PlantId.ToString().PadRight(30) + bp.Name.PadRight(5));
             }
             WriteLine("");
-            PrintGreenText("Vad vill du göra?");
+            PrintGreenText("Vad vill du göra?");        //TODO: Kanske en egen metod för detta val
             WriteLine("a) Välj en planta att arbeta med");
             WriteLine("b) Gå till huvudmenyn");
             while (true)
@@ -38,7 +38,7 @@ namespace PlantApp
                 }
                 else
                 {
-                    Console.WriteLine("Sorry, wrong input...");
+                    Console.WriteLine("Sorry, wrong input..."); //GOOD: Snygg validering!
                 }
             }
 
@@ -48,7 +48,7 @@ namespace PlantApp
         private void PickAPlant(List<Plant> sortedList)
         {
             Header("Vilken planta vill du jobba med? Välj ett Id");
-            foreach (Plant bp in sortedList)
+            foreach (Plant bp in sortedList)        //TODO: Kanske döpa om variabelnamn bp
             {
                 WriteLine(bp.PlantId.ToString().PadRight(30) + bp.Name.PadRight(5));
             }
@@ -155,7 +155,7 @@ namespace PlantApp
             try
             {
                 Process.Start(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe", "https://www.google.se/search?q=" + firstElement); // Ska visa bilder på växten
-                Console.WriteLine("");               
+                Console.WriteLine("");               //MEGAGOOD: Wow! Kul och bra!
             }
 
             catch (Exception)

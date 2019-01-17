@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using PlantApp.Domain;
@@ -73,9 +74,23 @@ namespace PlantApp
                         Console.Write("*");
                     }
                     WriteLine("");
-                    Write("Ange en e-post: ");
-                    email = Console.ReadLine(); // lägg till validering av e-post.
+                    while (true)
+                    {
+                        Write("Ange en e-post: ");
+                        email = Console.ReadLine(); // lägg till validering av e-post. Done//JR
+                        if (new EmailAddressAttribute().IsValid(email))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Du skrev in en felaktig e-mail");
+                            Console.WriteLine("Tryck enter för att försöka igen");
+                            Console.ReadKey();
+                        }
+                    }
                     WriteLine("Välj hur bostads exponeras mot solen");
+
                     List<Location> apparmentTypes = _dataAccess.GetAppartmentTypes();
 
                     foreach (var location in apparmentTypes)

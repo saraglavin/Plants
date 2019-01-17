@@ -20,7 +20,7 @@ namespace PlantApp
                 WriteLine(bp.PlantId.ToString().PadRight(30) + bp.Name.PadRight(5));
             }
             WriteLine("");
-            PrintGreenText("Vad vill du göra?");        //TODO: Kanske en egen metod för detta val
+            PrintGreenText("Vad vill du göra?");        //TODO:Just här tycker inte vi det ger så mycket -  Kanske en egen metod för detta val
             WriteLine("a) Välj en planta att arbeta med");
             WriteLine("b) Gå till huvudmenyn");
             while (true)
@@ -48,7 +48,7 @@ namespace PlantApp
         private void PickAPlant(List<Plant> sortedList)
         {
             Header("Vilken planta vill du jobba med? Välj ett Id");
-            foreach (Plant plant in sortedList)        //TODO: Kanske döpa om variabelnamn bp
+            foreach (Plant plant in sortedList)        //TODO: done -  Kanske döpa om variabelnamn bp
             {
                 WriteLine(plant.PlantId.ToString().PadRight(30) + plant.Name.PadRight(5));
             }

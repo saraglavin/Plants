@@ -48,7 +48,7 @@ namespace PlantApp
                     editUser.PassWord += key.KeyChar;
                     Console.Write("*");
                 }
-                //TODO: Kanske göra lösenordet "stjärnad" som vid skapandet. Kanske även ha i samma metod som skapandet.
+                //TODO: Done -  Kanske göra lösenordet "stjärnad" som vid skapandet. Kanske även ha i samma metod som skapandet.
                 _dataAccess.EditUser(editUser);
                 Console.Clear();
                 WriteLine("Uppdaterat!");

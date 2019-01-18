@@ -48,6 +48,7 @@ namespace PlantApp
         private void PickAPlant(List<Plant> sortedList)
         {
             Header("Vilken planta vill du jobba med? Välj ett Id");
+            // foreach (Plant bp in sortedList)
             foreach (Plant plant in sortedList)        //TODO: done -  Kanske döpa om variabelnamn bp
             {
                 WriteLine(plant.PlantId.ToString().PadRight(30) + plant.Name.PadRight(5));

@@ -44,7 +44,7 @@ namespace PlantApp
             else
             {
                 WriteLine("Fel val. Välj a eller b. Tryck enter för att logga in."); // Fixat - TODO: Bra validering, men den syns ej i appen. Behövs en ReadKey eller liknande.
-                Console.ReadKey();
+                Console.ReadKey(); // <-- (en pil), la till denna
                 Login();
             }
                 
@@ -78,7 +78,8 @@ namespace PlantApp
                     while (true)
                     {
                         Write("Ange en e-post: ");
-                        email = Console.ReadLine(); // lägg till validering av e-post. Done//JR
+                        // email = console.ReadLine();
+                        email = Console.ReadLine(); // lägg till validering av e-post. Don e//JR
                         if (new EmailAddressAttribute().IsValid(email))
                         {
                             break;

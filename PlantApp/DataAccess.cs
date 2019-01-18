@@ -9,7 +9,6 @@ namespace PlantApp
     partial class DataAccess
     {
         private const string conString = "Server=(localdb)\\mssqllocaldb; Database=Plants";
-        //private const string conString = "Server=tcp:academygbg.database.windows.net,1433;Initial Catalog=PlantBook;Persist Security Info=False;User ID=Tobias;Password=Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
 
         public List<Plant> GetAllPlantSorted()
         {
@@ -22,6 +21,7 @@ namespace PlantApp
                 var list = new List<Plant>();
                 while (reader.Read())
                 {
+                    // var bp = new Plant
                     var tempplant = new Plant      //TODO: Möjligen en otydlig variabelnamn
                     {
                         PlantId = reader.GetSqlInt32(0).Value,
@@ -82,6 +82,7 @@ namespace PlantApp
             return types;
         }
 
+        // public List<PlantComment> ShowComment(onlyOne)
         public List<PlantComment> ShowComment() // Done - TODO onlyOne används ej i metoden och behövs därför inte skickas med
         {
             var sql = @"select comment, [user].UserName from Comment 
@@ -115,8 +116,8 @@ namespace PlantApp
         internal void AddComment(Plant onlyOne, string comment, User loggedOnUser)
         {
             DateTime dateNow = DateTime.Now;
-            var sql = @"INSERT INTO Comment (Comment, UserID, Time, Likes, CommentTypeId, PlantId) 
-                       Values (@comment, @UserID, @dateNow, 0, 1, @PlantId)";
+            var sql = @"INSERT INTO Comment (Comment, UserID, Time, Likes, PlantId) 
+                       Values (@comment, @UserID, @dateNow, 0, @PlantId)";
             using (SqlConnection connection = new SqlConnection(conString))
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
@@ -307,15 +308,6 @@ namespace PlantApp
             return user;
         }
 
-        //public Plant GetPlantByCategory(int input)
-        //{
-        //    var sql = @"SELECT PlantId, Name
-        //                FROM Plant 
-        //                WHERE PlantTypeId=@input";
-        //    using (SqlConnection connection = new SqlConnection(conString))
-        //    using (SqlCommand command = new SqlCommand(sql, connection))
-        //    {
-        //        connection.Open();
 
         public List<Plant> GetPlantByCategory(int input)
         {
